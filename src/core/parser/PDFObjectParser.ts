@@ -236,7 +236,7 @@ class PDFObjectParser extends BaseParser {
       end = this.findEndOfStreamFallback(startPos);
     }
 
-    const contents = this.bytes.slice(start, end);
+    const contents = Uint8Array.from(this.bytes.slice(start, end));
 
     return PDFRawStream.of(dict, contents);
   }
